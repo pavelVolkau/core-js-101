@@ -200,7 +200,20 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-  
+  const arr = [];
+  for (let i = 0; i < height; i += 1) {
+    if (i === 0) {
+      const str = `┌${'─'.repeat(width - 2)}┐\n`;
+      arr.push(str);
+    } else if (i === height - 1) {
+      const str = `└${'─'.repeat(width - 2)}┘\n`;
+      arr.push(str);
+    } else {
+      const mid = `│${' '.repeat(width - 2)}│\n`;
+      arr.push(mid);
+    }
+  }
+  return arr.join('');
 }
 
 /**
